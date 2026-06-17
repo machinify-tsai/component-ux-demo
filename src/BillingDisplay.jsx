@@ -13,10 +13,8 @@ function useWindowWidth() {
 // Max-width per visible column count so groups don't stretch edge-to-edge
 // on wide screens. Keyed by how many columns are actually rendered.
 const MAX_WIDTH_BY_COLS = {
-  1: 380,
-  2: 680,
-  3: 960,
-  4: 1100,
+  1: "28rem",
+  2: "56rem",
 };
 
 function ResponsiveRow({ children, width }) {
@@ -60,7 +58,6 @@ function BillingField({ label, value }) {
   return (
     <div style={{
       display: "flex",
-      justifyContent: "space-between",
       alignItems: "center",
       padding: "10px 14px",
       fontSize: 13,
@@ -68,10 +65,11 @@ function BillingField({ label, value }) {
       borderRadius: 6,
       marginBottom: 4,
     }}>
-      <span style={{ color: "#6b7280", fontWeight: 500 }}>
+      <span style={{ flex: 1, color: "#6b7280", fontWeight: 500, textAlign: "right" }}>
         {label}
       </span>
       <span style={{
+        flex: 1,
         color: "#111827",
         fontWeight: 600,
         fontVariantNumeric: "tabular-nums",
@@ -148,7 +146,7 @@ export default function BillingDisplay() {
   return (
     <div style={{
       fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      maxWidth: 1100, margin: "0 auto", padding: 20, color: "#111827",
+      padding: 20, color: "#111827",
     }}>
       <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 4, flexWrap: "wrap" }}>
         <h2 style={{ fontSize: 18, fontWeight: 700, margin: 0 }}>Billing Data Display</h2>
@@ -159,7 +157,7 @@ export default function BillingDisplay() {
       </p>
 
       {/* ── 1 GROUP ── */}
-      <CollapsiblePanel title="Summary" badge="1 group → 1 col">
+      <CollapsiblePanel title="Summary" badge="1 group → 1 col · max 28rem">
         <ResponsiveRow width={width}>
           <Section title="Claim Summary">
             <BillingField label="Billed Amount" value="$11,117,431.76" />
@@ -172,7 +170,7 @@ export default function BillingDisplay() {
       </CollapsiblePanel>
 
       {/* ── 2 GROUPS ── */}
-      <CollapsiblePanel title="Authorization" badge="2 groups → 2 cols">
+      <CollapsiblePanel title="Authorization" badge="2 groups → 2 cols · max 56rem">
         <ResponsiveRow width={width}>
           <Section title="Auth Amounts">
             <BillingField label="Requested Amount" value="$48,230.00" />

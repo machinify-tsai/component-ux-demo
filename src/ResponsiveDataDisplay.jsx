@@ -14,8 +14,8 @@ function ResponsiveRow({ children, width }) {
   const items = Children.toArray(children);
   const count = items.length;
   let maxCols = 1;
-  if (width >= 900) maxCols = 4;
-  else if (width >= 560) maxCols = 2;
+  if (width >= 1200) maxCols = 4;
+  else if (width >= 768) maxCols = 2;
 
   // If count fits in one row, auto-fill (no empty cells).
   // If count overflows, keep maxCols so overflow items stay the same width.
@@ -119,8 +119,8 @@ function CollapsiblePanel({ title, tag, badge, defaultOpen = true, children }) {
 
 function WidthIndicator({ width }) {
   let label, color, bg;
-  if (width >= 900) { label = `4-col max (${width}px)`; color = "#065f46"; bg = "#d1fae5"; }
-  else if (width >= 560) { label = `2-col max (${width}px)`; color = "#92400e"; bg = "#fef3c7"; }
+  if (width >= 1200) { label = `4-col max (${width}px)`; color = "#065f46"; bg = "#d1fae5"; }
+  else if (width >= 768) { label = `2-col max (${width}px)`; color = "#92400e"; bg = "#fef3c7"; }
   else { label = `1-col (${width}px)`; color = "#991b1b"; bg = "#fee2e2"; }
   return (
     <span style={{ display: "inline-block", fontSize: 12, fontWeight: 600, padding: "4px 10px", borderRadius: 99, color, background: bg }}>
@@ -135,7 +135,7 @@ export default function ResponsiveDataDisplay() {
   return (
     <div style={{
       fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      maxWidth: 1100, margin: "0 auto", padding: 20, color: "#111827",
+      padding: 20, color: "#111827",
     }}>
       <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 4, flexWrap: "wrap" }}>
         <h2 style={{ fontSize: 18, fontWeight: 700, margin: 0 }}>Responsive Data Display</h2>
