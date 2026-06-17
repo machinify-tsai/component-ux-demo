@@ -3,8 +3,8 @@ import ResponsiveDataDisplay from "./ResponsiveDataDisplay";
 import BillingDisplay from "./BillingDisplay";
 
 const pages = [
-  { key: "responsive", label: "Responsive Data Display", component: ResponsiveDataDisplay },
-  { key: "billing", label: "Billing Display", component: BillingDisplay },
+  { key: "responsive", label: "Column Data Display", component: ResponsiveDataDisplay },
+  { key: "billing", label: "Numeric Data Display", component: BillingDisplay },
 ];
 
 export default function App() {
